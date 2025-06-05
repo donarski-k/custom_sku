@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="custom_sku_change" resource="default" engine="innodb" comment="Custom SKU Change Table">
+        <column xsi:type="smallint" name="change_id" unsigned="false" nullable="false" identity="true"
+                comment="Change ID"/>
+        <column xsi:type="int" name="product_id" unsigned="true" nullable="false" identity="false"
+                comment="Product ID"/>
+        <column xsi:type="varchar" name="value" nullable="false" length="255" comment="Value"/>
+        <column xsi:type="timestamp" name="update_time" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Value Update Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="change_id"/>
+        </constraint>
+        <index referenceId="CUSTOM_SKU_CHANGE_PRODUCT_ID" indexType="btree">
+            <column name="product_id"/>
+        </index>
+    </table>
+</schema>

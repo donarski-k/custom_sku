@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd"
+         name="custom_sku_change_listing">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">custom_sku_change_listing.custom_sku_change_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>custom_sku_change_columns</spinner>
+        <deps>
+            <dep>custom_sku_change_listing.custom_sku_change_listing_data_source</dep>
+        </deps>
+    </settings>
+    <listingToolbar>
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <dataSource name="custom_sku_change_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">change_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Kdev_CustomSku::custom_sku_changes</aclResource>
+        <dataProvider class="Kdev\CustomSku\Ui\Component\Listing\DataProvider" name="custom_sku_change_listing_data_source">
+            <settings>
+                <requestFieldName>change_id</requestFieldName>
+                <primaryFieldName>change_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <columns name="custom_sku_change_columns">
+        <column name="change_id" sortOrder="10">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+                <sorting>desc</sorting>
+            </settings>
+        </column>
+        <column name="product_id" sortOrder="20">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Product ID</label>
+            </settings>
+        </column>
+        <column name="value" sortOrder="30">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Value</label>
+            </settings>
+        </column>
+        <column name="update_time" sortOrder="40">
+            <settings>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <label translate="true">Update Time</label>
+            </settings>
+        </column>
+    </columns>
+</listing>

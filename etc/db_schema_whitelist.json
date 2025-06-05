@@ -1,0 +1,16 @@
+{
+    "custom_sku_change": {
+        "column": {
+            "change_id": true,
+            "product_id": true,
+            "value": true,
+            "update_time": true
+        },
+        "index": {
+            "CUSTOM_SKU_CHANGE_PRODUCT_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

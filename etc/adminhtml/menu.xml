@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Kdev_CustomSku::custom_sku"
+             title="Custom Sku"
+             translate="title"
+             module="Kdev_CustomSku"
+             sortOrder="10"
+             resource="Kdev_CustomSku::custom_sku"
+             action="custom_sku/index/index"
+        />
+    </menu>
+</config>
